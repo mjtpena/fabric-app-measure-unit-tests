@@ -1,0 +1,36 @@
+id: measure-unit-tests
+name: measure-unit-tests
+version: 1.0.0
+services:
+  auth:
+    enabled: true
+    fabric:
+      enabled: true
+    allowedRedirectUris:
+      - http://localhost:5173
+      - http://127.0.0.1:5173
+      - https://handy-ridge-db72616821-australiaeast.webapp.fabricapps.net
+  data:
+    enabled: true
+    dialect: mssql
+  staticHosting:
+    enabled: true
+    folder: dist
+    buildCommand: npm run build:fabric
+    indexDocument: index.html
+    assetAccess: protected
+  storage:
+    enabled: false
+  functions:
+    enabled: false
+connectors:
+  - name: model
+    type: fabric-semanticmodel
+    config:
+      workspaceId: ${MODEL_WORKSPACE_ID}
+      itemId: ${MODEL_ITEM_ID}
+    auth:
+      type: delegated
+    version: "1"
+    operations:
+      - name: executeQuery

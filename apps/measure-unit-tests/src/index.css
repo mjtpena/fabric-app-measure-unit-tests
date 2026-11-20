@@ -1,0 +1,204 @@
+@import 'tailwindcss';
+@import '@x10/shared/styles.css';
+@source "../../../shared/src";
+
+/*
+ * The test bench. A deep indigo circuit board on a pale bench (light) or a night bench (dark). Every colour is a mix
+ * of the kit's ramps so both themes stay in step with the palette.
+ */
+:root {
+  --pcb-board: var(--indigo-12);
+  --pcb-board-2: color-mix(in oklab, var(--indigo-12) 84%, var(--indigo-9));
+  --pcb-edge: color-mix(in oklab, var(--indigo-8) 50%, var(--indigo-12));
+  --pcb-trace: color-mix(in oklab, var(--indigo-8) 34%, var(--indigo-12));
+  --pcb-trace-hi: color-mix(in oklab, var(--indigo-7) 72%, var(--indigo-12));
+  --pcb-silk: color-mix(in oklab, var(--indigo-3) 92%, var(--indigo-12));
+  --pcb-silk-muted: color-mix(in oklab, var(--indigo-7) 78%, var(--indigo-12));
+  --pcb-copper: var(--gold-9);
+  --pcb-copper-dim: color-mix(in oklab, var(--gold-9) 55%, var(--indigo-12));
+  --pcb-chip: color-mix(in oklab, var(--gray-12) 90%, var(--indigo-12));
+  --pcb-chip-top: color-mix(in oklab, var(--gray-12) 72%, var(--indigo-9));
+  --pcb-chip-ink: var(--gray-4);
+  --pcb-pin: var(--gray-8);
+  --pcb-current: var(--indigo-6);
+  --pcb-dead: color-mix(in oklab, var(--indigo-8) 26%, var(--indigo-12));
+  --pcb-idle: color-mix(in oklab, var(--indigo-7) 50%, var(--indigo-12));
+  --pcb-shadow: rgb(24 28 70 / 0.3);
+  --pcb-bad-ink: color-mix(in oklab, var(--red-9) 45%, var(--pcb-silk));
+  --pcb-warn-ink: color-mix(in oklab, var(--amber-9) 60%, var(--pcb-silk));
+  --pcb-ok-ink: color-mix(in oklab, var(--green-9) 40%, var(--pcb-silk));
+  --bench-dots: rgb(40 44 90 / 0.11);
+
+  --scope-bg: color-mix(in oklab, var(--indigo-12) 70%, var(--gray-12));
+  --scope-grid: color-mix(in oklab, var(--indigo-7) 18%, transparent);
+  --scope-grid-strong: color-mix(in oklab, var(--indigo-7) 34%, transparent);
+  --scope-ink: var(--indigo-4);
+  --scope-muted: color-mix(in oklab, var(--indigo-7) 85%, var(--indigo-12));
+  --scope-trace: var(--indigo-6);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --pcb-board: color-mix(in oklab, var(--indigo-3) 80%, var(--indigo-5));
+    --pcb-board-2: color-mix(in oklab, var(--indigo-4) 80%, var(--indigo-6));
+    --pcb-edge: var(--indigo-7);
+    --pcb-trace: color-mix(in oklab, var(--indigo-6) 80%, var(--indigo-4));
+    --pcb-trace-hi: var(--indigo-8);
+    --pcb-silk: var(--indigo-12);
+    --pcb-silk-muted: color-mix(in oklab, var(--indigo-11) 72%, var(--indigo-5));
+    --pcb-copper-dim: color-mix(in oklab, var(--gold-9) 50%, var(--indigo-3));
+    --pcb-chip: var(--gray-1);
+    --pcb-chip-top: var(--gray-3);
+    --pcb-chip-ink: var(--gray-11);
+    --pcb-pin: var(--gray-9);
+    --pcb-current: var(--indigo-11);
+    --pcb-dead: var(--indigo-5);
+    --pcb-idle: var(--indigo-7);
+    --pcb-shadow: rgb(0 0 0 / 0.55);
+    --bench-dots: rgb(255 255 255 / 0.05);
+    --scope-bg: color-mix(in oklab, var(--indigo-2) 70%, var(--gray-1));
+    --scope-grid: color-mix(in oklab, var(--indigo-7) 40%, transparent);
+    --scope-grid-strong: color-mix(in oklab, var(--indigo-8) 55%, transparent);
+    --scope-ink: var(--indigo-12);
+    --scope-muted: var(--indigo-11);
+    --scope-trace: var(--indigo-11);
+  }
+}
+:root[data-theme='dark'] {
+  --pcb-board: color-mix(in oklab, var(--indigo-3) 80%, var(--indigo-5));
+  --pcb-board-2: color-mix(in oklab, var(--indigo-4) 80%, var(--indigo-6));
+  --pcb-edge: var(--indigo-7);
+  --pcb-trace: color-mix(in oklab, var(--indigo-6) 80%, var(--indigo-4));
+  --pcb-trace-hi: var(--indigo-8);
+  --pcb-silk: var(--indigo-12);
+  --pcb-silk-muted: color-mix(in oklab, var(--indigo-11) 72%, var(--indigo-5));
+  --pcb-copper-dim: color-mix(in oklab, var(--gold-9) 50%, var(--indigo-3));
+  --pcb-chip: var(--gray-1);
+  --pcb-chip-top: var(--gray-3);
+  --pcb-chip-ink: var(--gray-11);
+  --pcb-pin: var(--gray-9);
+  --pcb-current: var(--indigo-11);
+  --pcb-dead: var(--indigo-5);
+  --pcb-idle: var(--indigo-7);
+  --pcb-shadow: rgb(0 0 0 / 0.55);
+  --bench-dots: rgb(255 255 255 / 0.05);
+  --scope-bg: color-mix(in oklab, var(--indigo-2) 70%, var(--gray-1));
+  --scope-grid: color-mix(in oklab, var(--indigo-7) 40%, transparent);
+  --scope-grid-strong: color-mix(in oklab, var(--indigo-8) 55%, transparent);
+  --scope-ink: var(--indigo-12);
+  --scope-muted: var(--indigo-11);
+  --scope-trace: var(--indigo-11);
+}
+
+/* The bench surface: the world sky with a fine dot grid, like a cutting mat. */
+.bench-surface {
+  background:
+    radial-gradient(circle at 1px 1px, var(--bench-dots) 1px, transparent 1.5px) 0 0 / 22px 22px,
+    radial-gradient(120% 90% at 40% 30%, var(--world-sky-2) 0%, var(--world-sky) 70%);
+}
+
+/* ------------------------------------------------------------------ board motion */
+
+@keyframes pcb-flow {
+  to {
+    stroke-dashoffset: -64;
+  }
+}
+@keyframes pcb-arrive {
+  0% {
+    opacity: 0.95;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+@keyframes pcb-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+@keyframes pcb-charge {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+@keyframes pcb-solder {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pcb-flow {
+  stroke-dasharray: 10 22;
+  animation: pcb-flow 0.55s linear infinite;
+}
+.pcb-arrive {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pcb-arrive 900ms cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+.pcb-breathe {
+  animation: pcb-breathe 2.4s ease-in-out infinite;
+}
+.pcb-charge {
+  animation: pcb-charge 0.9s ease-in-out infinite;
+}
+.pcb-solder {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pcb-solder 520ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.pcb-hit {
+  cursor: pointer;
+  outline: none;
+}
+.pcb-hit .pcb-focus {
+  opacity: 0;
+  transition: opacity 120ms;
+}
+.pcb-hit:hover .pcb-focus,
+.pcb-hit:focus-visible .pcb-focus {
+  opacity: 1;
+}
+.pcb-hit:focus-visible .pcb-focus {
+  stroke: var(--focus, var(--indigo-9));
+}
+
+.bench-grab {
+  cursor: grab;
+}
+.bench-grab.is-dragging {
+  cursor: grabbing;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pcb-flow,
+  .pcb-breathe,
+  .pcb-charge,
+  .pcb-solder {
+    animation: none;
+  }
+  .pcb-arrive {
+    animation: none;
+    opacity: 0;
+  }
+}

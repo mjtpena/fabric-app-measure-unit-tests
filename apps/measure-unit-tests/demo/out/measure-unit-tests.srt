@@ -1,0 +1,119 @@
+1
+00:00:03,209 --> 00:00:05,285
+This is a test suite for a
+
+2
+00:00:05,285 --> 00:00:08,559
+semantic model, drawn as a circuit board.
+
+3
+00:00:09,009 --> 00:00:12,622
+Each chip is a measure, and each probe soldered to
+
+4
+00:00:12,622 --> 00:00:15,729
+it is a test case with the value we expect.
+
+5
+00:00:16,753 --> 00:00:19,755
+Green probes pass, red fails with the gap
+
+6
+00:00:19,755 --> 00:00:23,123
+shown, and amber means the query itself broke.
+
+7
+00:00:23,573 --> 00:00:27,033
+The dark one is a disabled case, so it gets no power.
+
+8
+00:00:27,836 --> 00:00:31,826
+I run the suite. Current flows from the model connector
+
+9
+00:00:31,826 --> 00:00:34,656
+to each query in flight, two at a time.
+
+10
+00:00:35,106 --> 00:00:37,773
+Probes light up as the results stream back,
+
+11
+00:00:37,773 --> 00:00:40,316
+and the monitor counts them as they land.
+
+12
+00:00:41,117 --> 00:00:44,367
+Today ranks what needs attention after the run.
+
+13
+00:00:44,817 --> 00:00:50,144
+The first item flies to the failing probe: sales for
+
+14
+00:00:50,144 --> 00:00:55,267
+2025 came back at 13,709 against a plan of 15,000.
+
+15
+00:00:56,067 --> 00:00:58,497
+Lenses repaint the same board.
+
+16
+00:00:58,947 --> 00:01:02,966
+Duration shows the slowest queries, and flakiness shows
+
+17
+00:01:02,966 --> 00:01:06,547
+which probes keep flipping between pass and fail.
+
+18
+00:01:09,216 --> 00:01:12,426
+Short circuit explains every error in plain words.
+
+19
+00:01:12,876 --> 00:01:16,441
+Here a measure was renamed, so the model cannot find
+
+20
+00:01:16,441 --> 00:01:19,526
+Revenue YTD, and the fix sits right under it.
+
+21
+00:01:20,336 --> 00:01:23,350
+The probe adds a case. I give it a measure and
+
+22
+00:01:23,350 --> 00:01:26,496
+a filter, and it takes a live reading as I type.
+
+23
+00:01:26,946 --> 00:01:30,121
+One click copies the reading into the expected value,
+
+24
+00:01:30,121 --> 00:01:32,816
+and the new probe is soldered onto the board.
+
+25
+00:01:40,579 --> 00:01:44,921
+The oscilloscope traces every probe across runs, so a
+
+26
+00:01:44,921 --> 00:01:47,789
+flaky test shows up as a busy wave.
+
+27
+00:01:48,595 --> 00:01:51,689
+View as developer shows what a teammate sees: they can
+
+28
+00:01:51,689 --> 00:01:54,325
+run any suite, but every edit control is gone.
+
+29
+00:01:55,247 --> 00:01:58,801
+Save the numbers that matter, run them after every model
+
+30
+00:01:58,801 --> 00:02:01,847
+change, and see what broke before your users do.
