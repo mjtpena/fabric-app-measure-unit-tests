@@ -100,7 +100,7 @@ export function AboutPage() {
           </p>
         </Block>
         <Block title="Built with">
-          <p className="m-0 text-muted">Microsoft Fabric Apps (preview), a Fabric SQL database and the semantic model connector. Built by Datachain Consulting for AI @Work.</p>
+          <p className="m-0 text-muted">Microsoft Fabric Apps, a Fabric SQL database and the semantic model connector. Built by Datachain Consulting for AI @Work.</p>
         </Block>
       </div>
     </div>

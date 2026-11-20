@@ -262,7 +262,7 @@ Known limits:
   each test case a probe; run the suite and current flows to every query as the probes light up pass, fail (with the
   gap) or error. Lenses show the slowest and flakiest tests, Today flies to what broke, the Oscilloscope traces every
   case across runs and Short circuit explains each error. The Probe writes the DAX for you and takes a live reading to
-  use as the expected value. Built on Fabric Apps (preview) with a Fabric SQL database and the semantic model connector.
+  use as the expected value. Built on Fabric Apps with a Fabric SQL database and the semantic model connector.
 
 ## License
 
